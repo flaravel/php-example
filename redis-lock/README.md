@@ -1,7 +1,8 @@
 # 关于Redis分布式锁
 应用场景:
 比如一个活动发放优惠券，需要用户自己领取，后台设置好优惠券并设置1000个发放数量，当领取完成之后，客户端显示为0，领取之后将优惠券增加到用户的账户当中
-![img.png](img.png)![](0AB2C985-2CB8-4E83-89CB-5DAE6C0E7294.png)
+
+![img_5.png](img_5.png)
 
 1. 在没做任何并发处理的情况下出现的问题?
 - 死锁问题
@@ -84,4 +85,9 @@ Redis 统计的数据
 下图加起来刚好有300个请求(包含初始值为10的优惠券)
 
 ![img_1.png](img_1.png)
+
+
+一个好用的php lock扩展包
+
+文档： https://symfony.com/doc/current/components/lock.html
 
