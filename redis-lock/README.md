@@ -72,7 +72,7 @@ try {
 
 这是并发请求后的数据， 测试 300个用户，15秒类请求完，也就是一秒20个并发
 
-![img_2.png](img_2.png)
+![img_6.png](img_6.png)
 
 ![img_3.png](img_3.png)
 
