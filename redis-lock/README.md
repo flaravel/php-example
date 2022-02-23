@@ -86,6 +86,8 @@ Redis 统计的数据
 
 ![Laravel](https://cdn.learnku.com/uploads/images/202202/24/30430/0h2AebXC04.png!large)
 
+这知识分布式锁其中的一种应用场景，这种场景还有别的觉得方案，比如用redis watch ，队列等
+
 一个好用的php lock扩展包
 
 文档： https://symfony.com/doc/current/components/lock.html
