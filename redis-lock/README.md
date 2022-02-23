@@ -24,7 +24,7 @@
 require 'RedisCache.php';
 
 // 假设优惠券设置成10
-//RedisCache::getInstance()->set('coupon_number', 10)   // 本机发测试小一点
+//RedisCache::getInstance()->set('coupon_number', 10)   // 本机测试小一点
 
 $uuid = uuid_create(1); // uuid 安装 php的 uuid扩展
 $key = 'coupon:1';  // 领取的优惠券id为1，当做key值
