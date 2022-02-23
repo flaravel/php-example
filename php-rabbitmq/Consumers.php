@@ -140,7 +140,8 @@ class Consumers extends MqConnectionFactory
             }
             var_dump("Received: " . $msg);
             var_dump("---------------------");
-            $queue->ack($envelope->getDeliveryTag());
+            $queue->ack($envelope->getDeliveryTag(),AMQP_MULTIPLE);
+            $queue->consume();
         }
         $queue->consume('processMessage');
     }

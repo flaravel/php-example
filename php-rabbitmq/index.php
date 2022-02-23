@@ -44,9 +44,9 @@ $data = require "config.php";
 // topic queue
 try {
     $publisher = new Publisher($data['host'], $data['port'], $data['vhost'], $data['login'], $data['password']);
-    $publisher->sendTopicQueue('error日志', 'error');
-    $publisher->sendTopicQueue('waring日志', 'waring');
-    $publisher->sendTopicQueue('info日志', 'info');
+    $publisher->sendTopicQueue('error日志-'.date('Y-m-d H:i:s'), 'error');
+//    $publisher->sendTopicQueue('waring日志-'.date('Y-m-d H:i:s'), 'waring');
+//    $publisher->sendTopicQueue('info日志-'.date('Y-m-d H:i:s'), 'info');
     $publisher->close();
 } catch (Exception $e) {
     var_dump('connection mq error:'. $e->getMessage());

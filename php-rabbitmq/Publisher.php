@@ -142,19 +142,21 @@ class Publisher extends MqConnectionFactory
 
         $this->channel->confirmSelect();
 
-        $this->channel->setConfirmCallback(function ($delivery_tag,$multiple) {
-            var_dump($delivery_tag, $multiple);
-            return true;
-        }, function () {
-            return true;
-        });
-
         // 持久化
         echo 'Send Message: '. $this->exchange->publish($message, 'goods.'.$error,AMQP_NOPARAM, array('delivery_mode'=>2,'priority'=>9)) . "\n";
-
         echo "Message Is Sent: " . $message . "\n";
 
-        $this->channel->waitForConfirm(5);
+        $cnt = 2;
+        $this->channel->setConfirmCallback(function ($delivery_tag, $multiple) use(&$cnt) {
+            echo 'Message acked', PHP_EOL;
+            var_dump(func_get_args());
+            return --$cnt > 0;
+        }, function ($delivery_tag, $multiple, $requeue) {
+            echo 'Message nacked', PHP_EOL;
+            var_dump(func_get_args());
+            return false;
+        });
 
+        $this->channel->waitForConfirm(1);
     }
 }
